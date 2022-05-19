@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="m3u8g:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/m3u8g_jar</output-path>
+    <root id="archive" name="m3u8g.jar">
+      <element id="module-output" name="M3u8Getter" />
+    </root>
+  </artifact>
+</component>
