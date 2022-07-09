@@ -17,6 +17,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean appendUser(User user) {
+        return userMapper.appendUser(user);
+    }
+
+    @Override
     public User getUser(Long id) {
         return userMapper.queryUser(id);
     }

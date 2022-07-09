@@ -1,7 +1,6 @@
 package org.kyaruchan.provider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kyaruchan.model.bean.User;
 import org.kyaruchan.provider.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +14,6 @@ public class MyTest {
 
     @Test
     public void testUserMapper(){
-        System.out.println(userMapper.appendUser(new User("Maruzen", "db1")));
         System.out.println(userMapper.queryAll());
         System.out.println(userMapper.queryUser(1L));
     }

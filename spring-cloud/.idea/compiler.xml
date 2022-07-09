@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="provider" />
         <module name="model" />
+        <module name="consumer" />
       </profile>
     </annotationProcessing>
   </component>
