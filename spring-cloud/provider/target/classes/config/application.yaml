@@ -1,0 +1,19 @@
+# Server
+server:
+  port: 8100
+
+# MyBatis
+mybatis:
+  type-aliases-package: org.kyaruchan.model.bean
+  mapper-locations: classpath:mapper/*.xml
+
+# Spring
+spring:
+  application:
+    name: provider
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db1?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: kyaru139
