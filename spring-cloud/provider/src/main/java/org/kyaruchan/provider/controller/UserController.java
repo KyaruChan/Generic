@@ -2,13 +2,14 @@ package org.kyaruchan.provider.controller;
 import org.kyaruchan.model.bean.User;
 import org.kyaruchan.provider.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/user", produces = "application/json; charset=UTF-8")
 public class UserController {
     private UserService userService;
 
@@ -16,27 +17,30 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(path = "/append", method = RequestMethod.POST)
+    @RequestMapping(path = "/append")
     public Boolean appendUser(User user){
         System.out.println("===Provider: I am invoking===");
         return userService.appendUser(user);
     }
 
-    @RequestMapping(path = "/getById", method = RequestMethod.GET)
-    public User getUser(Long id){
-        System.out.println("===Provider: I am invoking===");
-        return userService.getUser(id);
+    @RequestMapping(path = "/getById/{id}")
+    public User getUser(@PathVariable Long id){
+        User user = userService.getUser(id);
+        System.out.println("provider-getUser: " + user.toString());
+        return user;
     }
 
-    @RequestMapping(path = "/getInDatabase", method = RequestMethod.GET)
-    public List<User> getUserInDatabase(String dbName){
-        System.out.println("===Provider: I am invoking===");
-        return userService.getUserInDatabase(dbName);
+    @RequestMapping(path = "/getInDatabase/{dbName}")
+    public List<User> getUserInDatabase(@PathVariable String dbName){
+        List<User> users = userService.getUserInDatabase(dbName);
+        System.out.println("provider-getUserInDatabase: " + users);
+        return users;
     }
 
-    @RequestMapping(path = "/getAll", method = RequestMethod.GET)
+    @RequestMapping(path = "/getAll")
     public List<User> getAllUser(){
-        System.out.println("===Provider: I am invoking===");
-        return userService.getAll();
+        List<User> users = userService.getAll();
+        System.out.println("provider-getAllUser: " + users);
+        return users;
     }
 }
